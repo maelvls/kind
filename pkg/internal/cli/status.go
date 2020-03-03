@@ -61,6 +61,11 @@ func (s *Status) Start(status string) {
 	s.End(true)
 	// set new status
 	s.status = status
+
+	if !s.logger.V(5).Enabled() {
+		return
+	}
+
 	if s.spinner != nil {
 		s.spinner.SetSuffix(fmt.Sprintf(" %s ", s.status))
 		s.spinner.Start()
@@ -73,6 +78,10 @@ func (s *Status) Start(status string) {
 // marking the status as success or failure
 func (s *Status) End(success bool) {
 	if s.status == "" {
+		return
+	}
+
+	if !s.logger.V(5).Enabled() {
 		return
 	}
 
