@@ -20,6 +20,7 @@ import (
 	"bytes"
 	"context"
 	"io"
+	"log"
 	osexec "os/exec"
 	"sync"
 
@@ -79,6 +80,7 @@ func (cmd *LocalCmd) SetStderr(w io.Writer) Cmd {
 // Run runs the command
 // If the returned error is non-nil, it should be of type *RunError
 func (cmd *LocalCmd) Run() error {
+	log.Println(PrettyCommand(cmd.Args[0], cmd.Args[1:]...))
 	// Background:
 	// Go's stdlib will setup and use a shared fd when cmd.Stderr == cmd.Stdout
 	// In any other case, it will use different fds, which will involve
