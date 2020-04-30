@@ -29,3 +29,5 @@ require (
 	github.com/kr/text v0.2.0 // indirect
 	golang.org/x/sys v0.6.0 // indirect
 )
+
+replace sigs.k8s.io/kind => github.com/maelvls/kind v0.5.2-0.20191104231410-aea9a4750708
