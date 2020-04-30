@@ -16,3 +16,5 @@ require (
 	k8s.io/apimachinery v0.19.2
 	sigs.k8s.io/yaml v1.2.0
 )
+
+replace sigs.k8s.io/kind => github.com/maelvls/kind v0.5.2-0.20191104231410-aea9a4750708
